@@ -1,3 +1,4 @@
+désolé s'il y a des fautes d'anglais
 # BrutBios
 Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant de fun et de manque de sommeil ?
 
@@ -25,6 +26,8 @@ Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant
   > Le but est de gérer efficacement en partionnant la tâche, la première façon de partitionner la tâche est avec les masques donc `?u?u?l?u` par exemple. La deuxième façon est avec les checkpoint de hashcat qui sont ici sauvegardé ce qui permet d'avroir des processus pouvant être interrompu à tout moment
   Niveau interface...
   > Un tentative de menu et une tentative de jolie debug, à vous d'en juger mais ça marche en tout cas ( en principe )
+  
+  ![image](https://github.com/daisseur/BrutBios/assets/100715068/05aae33e-419a-41b5-a565-efd53f1677d0)
   #### 2 modes
   1)
   > Il ya donc le mode `benchmark` qui vas vous dire à quel point votre pc est mieux que le mien avec le nombre de Khash/s ou Mhash/s ça dépend (il s'agit du nombre de hashs pouvant être testé à la seconde). Vous avez ensuite l'affichage d'un jolie texte vous indicant souvant le nombre d'années qu'il vous faudrait pour cracker le mdp du bios que je chercher
