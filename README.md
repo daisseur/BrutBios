@@ -34,7 +34,11 @@ Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant
   
   2)
   > Et le mode principal `Run MainBrutForce` pour lancer la magnifique classe qui fait de ce programme un code orienté objet
-
+- ### [4] ARRETER LE SCRIPT SANS TOUT CASSER
+  > Pour arrêter le script et enregistrer au prochain mask il n'y a qu'à faire `python3 stop.py` sinon taper 'c' ou 'q' sur hashcat une fois lancé
+  
 ## Pour tout problèmes...
  Soit un message sur discord soit une issue si vous êtes déter
  C'est pas fini mais le principal marche à peu près, il manque plus qu'une petite api web pour dire quel mask il faut faire, quel ordi est en train de tourner avec quel checkpoint.
+
+
