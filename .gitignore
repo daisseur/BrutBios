@@ -1,3 +1,6 @@
+/.ideas/
 /__pycache__/
-/.idea/
-/.git/
+*restore
+setup.json
+combinations.hcmask
+hashes.hash
