@@ -1,0 +1,1 @@
+{"password_length": 10, "masks_filename": "combinations.hcmask", "bad_masks": [0, 1, 2, 3, 4, 5], "selected_mask": 0, "checkpoint_filename": "checkpoint.restore"}
