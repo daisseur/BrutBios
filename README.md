@@ -49,6 +49,9 @@ Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant
 ```sh
 {                                           "password_length": 10,
   "masks_filename": "combinations.hcmask",
-  "bad_masks": [],                                       "selected_mask": 0,                             "checkpoint_filename":"checkpoint.restore"
+  "bad_masks": [],
+  "selected_mask": 0,
+  "checkpoint_filename":"checkpoint.restore"
+                                                                 
 }
 ```
