@@ -1,6 +1,9 @@
 /.ideas/
 /__pycache__/
+/hashcat*/
+.*
+*.7z
+*.hashcmask
+*.hash
 *restore
 setup.json
-combinations.hcmask
-hashes.hash
