@@ -1,4 +1,4 @@
-désolé s'il y a des fautes d'anglais
+désolé s'il y a des fautes d'anglais dans le code 😅
 # BrutBios
 Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant de fun et de manque de sommeil ?
 
@@ -39,7 +39,8 @@ Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant
   > Pour arrêter le script et enregistrer au prochain mask il n'y a qu'à faire `python3 stop.py` sinon taper 'c' ou 'q' sur hashcat une fois lancé
   
 ## Pour tout problèmes...
- Soit un message sur discord soit une issue si vous êtes déter
- C'est pas fini mais le principal marche à peu près, il manque plus qu'une petite api web pour dire quel mask il faut faire, quel ordi est en train de tourner avec quel checkpoint.
+ Soit un message sur discord soit une issue si vous êtes déterminé
+
+ Le projet n'est pas fini mais le principal marche à peu près, il manque plus qu'une petite api web pour dire quel mask il faut faire, quel ordi est en train de tourner avec quel checkpoint. Mais aussi de mieux sélectionner quel Mask tester, actuellement c'est avec le json uniquement.
 
 
