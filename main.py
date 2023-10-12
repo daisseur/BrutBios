@@ -56,12 +56,12 @@ def simple_menu(options=[]):
         ask += f"[{n}] {option}\n"
         n += 1
     ask += "\n     >> "
-    input(ask)
+    return input(ask)
 
 class MainBrutForce:
 
     def __init__(self, setup_filename="setup.json", hash256='',
-                 salt='', password_lenght=10):
+                 salt='', password_lenght=10, new_menu=True):
         self.os = name
         self.password_length = password_lenght
         self.hash = hash256
@@ -77,6 +77,7 @@ class MainBrutForce:
         self.command = "{} -i --increment-min {} --increment-max {} -m 1410 -a 3 -O -w 3 hashes.hash {} --restore-file-path={}"
         self.folder_command = "{} -i --increment-min {} --increment-max {} -m 1410 -a 3 -O ..{}hashes.hash ..{}{} --restore-file-path={}"
         self.continue_command = "hashcat --restore-file-path=checkpoint.restore --restore"
+        self.new_menu = new_menu
 
     def run(self):
         self.info("Starting setup...")
@@ -99,19 +100,31 @@ class MainBrutForce:
             self.quit()
 
     def options(self):
-        options = ["Select a mask", "Choose a Hashcat checkpoint"]
-        try:
-            menu = Menu(options, n_return=True, title="What function do you want to run ?").show()
-        except:
-            menu = simple_menu(options)
-        match menu:
-            case "1":
-                self.test_return(self.selected_mask)
-            case "2":
-
-            case _:
-                print("BAD CHOICE")
-                self.quit()
+        options = ["Select a mask", "Choose a Hashcat checkpoint", ' ', "Show bad_masks", 'Show selected mask']
+        while True:
+            if self.new_menu:
+                try:
+                    menu = Menu(options, n_return=True, title="What function do you want to run ?").show()
+                except:
+                    menu = simple_menu(options)
+            else:
+                menu = simple_menu(options)
+            match menu:
+                case "1":
+                    self.test_return(self.select_mask())
+                case "2":
+                    self.test_return(self.select_checkpoint())
+                case "4":
+                    print(f"Bad masks : {self.bad_masks}")
+                    input("continue..")
+                    continue
+                case "5":
+                    print(f"Selected mask : {self.selected_mask}")
+                    input("continue..")
+                    continue
+                case _:
+                    print("BAD CHOICE")
+                    self.quit()
 
     def select_checkpoint(self):
         print(f' .{sep}'.join(listdir()))
@@ -124,8 +137,7 @@ class MainBrutForce:
                 self.write_setup()
                 self.info("Checkpoint changed")
             else:
-                pass
-                # TODO
+                print("File not found")
 
     def select_mask(self):
        while True:
@@ -138,7 +150,7 @@ class MainBrutForce:
                print("You must enter a n_mask (int)")
                continue
            if mask in self.bad_masks:
-               print("This mask was already tested")
+               print("This is in bad_masks")
                sure = input("Are you sure ? ")
                if sure in ["y", "o", "yes", "oui"]:
                    self.selected_mask = mask
@@ -229,16 +241,27 @@ class MainBrutForce:
 
 
 if __name__ == "__main__":
-    try:
-        menu = Menu(arb_choices={"Benchmark": "1", "Run MainBrutForce": "2"}, title="What function do you want to run ?").show_all()
-    except:
-        menu = input("[1] Benchmark\n[2] Run MainBrutForce\n    >> ")
+    USE_NEW_MENU = True
+    if name == "nt": USE_NEW_MENU = False
+
+    main = MainBrutForce(hash256="26a5d2826c1fdbf2f93b1380d356c383f85b086aaa5c489838f8ac5ff22e1fe9",
+                         salt="00000000000000000000", new_menu=USE_NEW_MENU)
+    main.setup()
+    choices = ["Benchmark", "Run MainBrutForce", "Options"]
+
+    if USE_NEW_MENU:
+        try:
+            menu = Menu(choices, n_return=True, title="What function do you want to run ?").show()
+        except:
+            menu = simple_menu(choices)
+    else:
+        menu = simple_menu(choices)
     match menu:
         case "1":
             show()
         case "2":
-            main = MainBrutForce(hash256="26a5d2826c1fdbf2f93b1380d356c383f85b086aaa5c489838f8ac5ff22e1fe9",
-                                 salt="00000000000000000000")
             main.run()
+        case "3":
+            main.options()
 
 
