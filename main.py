@@ -1,10 +1,10 @@
 from subprocess import Popen, run
 from create_hcmask import generate_masks, write_hcmask_file
 from json import loads, dumps
-from os import name, chdir, getcwd, remove
+from os import name, chdir, getcwd, remove, listdir
 from time import perf_counter
 from os import system as cmd
-from os.path import exists, basename, isdir
+from os.path import exists, basename, isdir, isfile
 from print_color import print_color
 from new_menu import Menu
 from threading import Thread
@@ -94,13 +94,57 @@ class MainBrutForce:
                     self.quit()
             n_mask += 1
 
+    def test_return(self, obj):
+        if obj is None:
+            self.quit()
+
     def options(self):
-        options = ["Select Specific mask", ]
+        options = ["Select a mask", "Choose a Hashcat checkpoint"]
         try:
             menu = Menu(options, n_return=True, title="What function do you want to run ?").show()
         except:
             menu = simple_menu(options)
-    
+        match menu:
+            case "1":
+                self.test_return(self.selected_mask)
+            case "2":
+
+            case _:
+                print("BAD CHOICE")
+                self.quit()
+
+    def select_checkpoint(self):
+        print(f' .{sep}'.join(listdir()))
+        while True:
+            file = input("Checkpoint file : ")
+            if file == '':
+                return
+            if isfile(file):
+                self.checkpoint_filename = file
+                self.write_setup()
+                self.info("Checkpoint changed")
+            else:
+                pass
+                # TODO
+
+    def select_mask(self):
+       while True:
+           try:
+               mask = input("Input the n_mask : ")
+               if mask == '':
+                   return
+               mask = int(mask)
+           except:
+               print("You must enter a n_mask (int)")
+               continue
+           if mask in self.bad_masks:
+               print("This mask was already tested")
+               sure = input("Are you sure ? ")
+               if sure in ["y", "o", "yes", "oui"]:
+                   self.selected_mask = mask
+                   self.info("selected mask :", self.selected_mask)
+                   return True
+
     def check_dir(self, verif="hashcat", ex=".."):
         if basename(getcwd()) == verif:
             chdir(ex)
