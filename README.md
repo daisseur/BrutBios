@@ -16,7 +16,7 @@ Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant
   ```
   > Le script va tester hashcat en générant des hashs sha256 salted et en les crackant. Mais il va aussi installer des librairies si besoin ou installer hashcat (je l'ai fait pour windows l'installation parce que c'est chiant). Pour linux faites tout seul c'est simple et mac je sais pas.
   
-  /!\ PAS BESOIN DE DROITS ADMINS /!\
+   PAS BESOIN DE DROITS ADMINS
 - ### [3] EXECUTER MAIN.PY
     ```sh
   python3 main.py
@@ -24,13 +24,14 @@ Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant
   > Un magnifique petit script qui m'aura fait perdre 4 heures de sommeil et m'aura fait loupé mon éval de SVT
   
   > Le but est de gérer efficacement en partionnant la tâche, la première façon de partitionner la tâche est avec les masques donc `?u?u?l?u` par exemple. La deuxième façon est avec les checkpoint de hashcat qui sont ici sauvegardé ce qui permet d'avroir des processus pouvant être interrompu à tout moment
+
   Niveau interface...
   > Un tentative de menu et une tentative de jolie debug, à vous d'en juger mais ça marche en tout cas ( en principe )
   
   ![image](https://github.com/daisseur/BrutBios/assets/100715068/05aae33e-419a-41b5-a565-efd53f1677d0)
   #### 2 modes
   1)
-  > Il ya donc le mode `benchmark` qui vas vous dire à quel point votre pc est mieux que le mien avec le nombre de Khash/s ou Mhash/s ça dépend (il s'agit du nombre de hashs pouvant être testé à la seconde). Vous avez ensuite l'affichage d'un jolie texte vous indicant souvant le nombre d'années qu'il vous faudrait pour cracker le mdp du bios que je chercher
+  > Il ya donc le mode `benchmark` qui vas vous dire à quel point votre pc est mieux que le mien avec le nombre de Khash/s ou Mhash/s ça dépend (il s'agit du nombre de hashs pouvant être testé à la seconde). Vous avez ensuite l'affichage d'un joli texte vous indicant souvant le nombre d'années qu'il vous faudrait pour cracker le mdp du bios que je chercher
   
   2)
   > Et le mode principal `Run MainBrutForce` pour lancer la magnifique classe qui fait de ce programme un code orienté objet
