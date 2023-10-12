@@ -43,4 +43,12 @@ Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant
 
  Le projet n'est pas fini mais le principal marche à peu près, il manque plus qu'une petite api web pour dire quel mask il faut faire, quel ordi est en train de tourner avec quel checkpoint. Mais aussi de mieux sélectionner quel Mask tester, actuellement c'est avec le json uniquement.
 
+## setup.json
+> Un fichier json est là pour enregistrer la progression
 
+```sh
+{                                           "password_length": 10,
+  "masks_filename": "combinations.hcmask",
+  "bad_masks": [],                                       "selected_mask": 0,                             "checkpoint_filename":"checkpoint.restore"
+}
+```
