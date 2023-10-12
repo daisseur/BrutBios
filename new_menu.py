@@ -23,7 +23,7 @@ example2 = {"title": 'Who are you ?',
     
 
 class Menu:
-    def __init__(self, choices=example1, arb_choices=example2, title="", border_style: list[int] = [curses.COLOR_BLUE, curses.COLOR_BLACK],
+    def __init__(self, choices=example1, arb_choices=example2, title="", n_return=False, border_style: list[int] = [curses.COLOR_BLUE, curses.COLOR_BLACK],
                  selected_style: list[int] = [curses.COLOR_WHITE, curses.COLOR_BLUE], limit=30, do_split=None, default=0, xy: tuple = None,
                  log__var=False, std=None):
         self.std = std or curses.initscr()
@@ -32,12 +32,13 @@ class Menu:
         curses.curs_set(0)
         curses.noecho()
         self.window_height, self.window_width = self.std.getmaxyx()
-        print(self.window_height, self.window_width)
+        # print(self.window_height, self.window_width)
         self.std.keypad(1)
         self.selected = default
         self.log__var = log__var
         self.show_log__var = self.log__var
         self.log = []
+        self.n_return = n_return
         self.title = title
         self.arb_choices = arb_choices
         self.choices = choices
@@ -207,7 +208,10 @@ class Menu:
             if self.user_key(key) is True:
                 self.std.clear()
                 curses.endwin()
-                return self.choices[self.selected]
+                if self.n_return:
+                    return str(self.selected+1)
+                else:
+                    return self.choices[self.selected]
 
             self.set_border()
             self.menu_log(5, 10, f"Key : {key}")
