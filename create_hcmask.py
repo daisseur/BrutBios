@@ -12,8 +12,8 @@ def generate_masks(length):
 def write_hcmask_file(filename="combinations.hcmask", masks=''):
     with open(filename, 'w') as file:
         for mask in masks:
-            file.write(mask + '\n')
-
+            if mask:
+                file.write(mask + '\n')
 
 if __name__ == '__main__':
     password_length = 3
