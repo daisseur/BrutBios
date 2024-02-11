@@ -47,7 +47,8 @@ Il existe peut-être des meilleures alternatives mais pourquoi se priver de tant
 > Un fichier json est là pour enregistrer la progression
 
 ```sh
-{ "password_length": 10,
+{
+  "password_length": 10,
   "masks_filename": "combinations.hcmask",
   "bad_masks": [],
   "selected_mask": 0,
